@@ -1,0 +1,13 @@
+*.class
+*.jar
+.project
+.jar
+.war
+Servers/
+RemoteSystemsTempFiles/
+*/target/
+.metadata
+*.metadata
+*.settings
+test.restful.album.ear/
+*/bin/
