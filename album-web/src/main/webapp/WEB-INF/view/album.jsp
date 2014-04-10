@@ -14,6 +14,8 @@
 <p>date (de l'instance) : ${album.releaseDate}</p>
 <p>format : ${album.type}</p>
 
+<p>artiste : ${album.author.pseudo} </p>
+
 <a href="http://localhost:8080/album-web/album/list.html">retour à la liste</a>
 </body>
 </html>

@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 
 
-@XmlRootElement(name="person")
+@XmlRootElement(name="author")
 public class Person {
 	
 	private static int ID_SEQUENCE = 0;

@@ -12,9 +12,13 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.config.DefaultClientConfig;
+
 import test.restful.album.library.entity.Album;
 import test.restful.album.library.entity.AlbumList;
 import test.restful.album.library.entity.AlbumType;
+import test.restful.album.library.entity.Person;
 
 
 @Path("/albums")
@@ -23,6 +27,9 @@ public class AlbumService {
 	//handling sequence here avoid parameter objects incrementing it (like "newAlbum" in addAlbum function)
 	private static int ALBUM_SEQUENCE = 0;
 	private static Map<Integer,Album> albums = new HashMap<Integer,Album>();
+	
+	
+	
 	
 	//creation static d'objets initiaux
 	static {
@@ -33,6 +40,7 @@ public class AlbumService {
 		album1.setType(AlbumType.SINGLE);
 		album1.setCdNumber(1);
 		albums.put(album1.getId(), album1);
+		
 		
 		Album album2 = new Album();
 		album2.setId(++ALBUM_SEQUENCE);
@@ -52,7 +60,7 @@ public class AlbumService {
 	@GET
 	@Path("/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Album getAlbum(@PathParam("id")int id){
+	public static Album getAlbum(@PathParam("id")int id){
 		//TODO add exception handling
 		return albums.get(id);
 	}
@@ -65,7 +73,7 @@ public class AlbumService {
 	@GET
 	@Path("/all")
 	@Produces(MediaType.APPLICATION_JSON)
-	public AlbumList getAlbums(){
+	public static AlbumList getAlbums(){
 		AlbumList list = new AlbumList();
 		
 		//filling a list with the content of the global hashmap
@@ -84,19 +92,23 @@ public class AlbumService {
 	 * @return un format JSON de l'album créé
 	 */
 	@POST
-	@Path("/add")
+	@Path("/add/{author_id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Album addAlbum(Album newAlbum){ //TODO add an author //TODO exception handling
+	public static Album addAlbum(Album newAlbum, @PathParam("author_id") int author_id){ 
+		//TODO add an author //TODO exception handling
 		
 		Album album = new Album();
-		
 
 		album.setId(++ALBUM_SEQUENCE);
 		album.setName(newAlbum.getName());
 		album.setReleaseDate(newAlbum.getReleaseDate());
 		album.setCdNumber(newAlbum.getCdNumber());
 		album.setType(newAlbum.getType());
-		//TODO handle authors
+
+		// handle authors
+		Person author = AuthorService.getAuthor(author_id); //TODO get from service author
+		album.setAuthor(author);
+		//TODO add album to Author (beware json construction loop ?)
 		
 		albums.put(album.getId(), album);
 		return album;

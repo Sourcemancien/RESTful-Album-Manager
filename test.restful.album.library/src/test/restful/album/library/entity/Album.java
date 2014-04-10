@@ -77,12 +77,12 @@ public class Album {
 
 
 	@XmlElement
-	public Person getAuthors() {
+	public Person getAuthor() {
 		return author;
 	}
 
 
-	public void setAuthors(Person author) {
+	public void setAuthor(Person author) {
 		this.author = author;
 	}
 

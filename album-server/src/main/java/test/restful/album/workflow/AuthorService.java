@@ -1,8 +1,6 @@
 package test.restful.album.workflow;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -23,6 +21,7 @@ public class AuthorService {
 	
 	private static Map<Integer, Person> authors = new HashMap<Integer,Person>();
 	
+	
 	//creation statique d'objet initiaux (provisoire)
 	static {
 		Person person1 = new Person();
@@ -42,7 +41,7 @@ public class AuthorService {
 	@GET
 	@Path("/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Person getAuthor(@PathParam("id")int id){
+	public static Person getAuthor(@PathParam("id")int id){
 		return AuthorService.authors.get(id);
 	}
 	
@@ -50,7 +49,7 @@ public class AuthorService {
 	@GET
 	@Path("/all")
 	@Produces(MediaType.APPLICATION_JSON)
-	public AuthorList getAuthors(){
+	public static AuthorList getAuthors(){
 		AuthorList list = new AuthorList();
 		Set<Integer> keyset = authors.keySet();
 		
@@ -67,7 +66,7 @@ public class AuthorService {
 	@Path("/add")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Person addAuthor(Person newAuthor){
+	public static Person addAuthor(Person newAuthor){
 		Person author = new Person();
 		
 		author.setFirstname(newAuthor.getFirstname());
