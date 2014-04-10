@@ -15,14 +15,13 @@
 La récupération des albums s'est à peu près déroulée comme voulu, mais on en sait pas trop, peut être, peut être pas.
 Voici la liste des albums connus :
 
-${albums.toString}
 
-
+<ul>
 <c:forEach items="${albums}" var="album">
-	
-	<p>nom d'album : ${album}</p>
-	
+	<li> ${album.name} </li>
 </c:forEach>
+</ul>
+
 
 </body>
 </html>

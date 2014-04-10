@@ -13,6 +13,7 @@ import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import test.restful.album.library.entity.Album;
+import test.restful.album.library.entity.AlbumList;
 import test.restful.album.library.entity.AlbumType;
 
 
@@ -61,7 +62,7 @@ public class AlbumController {
 		System.out.println("call api");
 		try{
 			//Arrays.asList((rest.getForObject(restPath + "/albums", Album[].class)))
-			albums = Arrays.asList(rest.getForObject(restPath + "all", Album[].class));
+			albums = rest.getForObject(restPath + "all", AlbumList.class).getListe();
 			model.addAttribute("albums", albums);
 		}
 		catch (RestClientException e){

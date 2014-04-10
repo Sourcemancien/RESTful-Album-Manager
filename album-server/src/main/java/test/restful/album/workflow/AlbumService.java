@@ -16,6 +16,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import test.restful.album.library.entity.Album;
+import test.restful.album.library.entity.AlbumList;
 import test.restful.album.library.entity.AlbumType;
 
 
@@ -62,12 +63,12 @@ public class AlbumService {
 	@GET
 	@Path("/all")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Album> getAlbums(){
-		List<Album> list = new ArrayList<Album>();
+	public AlbumList getAlbums(){
+		AlbumList list = new AlbumList();
 		
 		Set<Integer> keyset = albums.keySet();
 		for (int key : keyset) {
-			list.add(albums.get(key));
+			list.addAlbum(albums.get(key));
 		}
 		
 		return list;

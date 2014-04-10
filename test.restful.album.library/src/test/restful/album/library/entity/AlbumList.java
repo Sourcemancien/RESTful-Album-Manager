@@ -33,5 +33,10 @@ public class AlbumList {
 	}
 	
 	
+	
+	public void addAlbum(Album album){
+		this.liste.add(album);
+	}
+	
 
 }
