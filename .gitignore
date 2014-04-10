@@ -11,3 +11,4 @@ RemoteSystemsTempFiles/
 *.settings
 test.restful.album.ear/
 */bin/
+*.zip
