@@ -15,14 +15,13 @@
 La récupération des auteurs s'est à peu près déroulée comme voulu, mais on en sait pas trop, peut être, peut être pas.
 Voici la liste des auteurs connus :
 
-${authors.toString}
 
-
+<ul>
 <c:forEach items="${authors}" var="author">
-	
-	<p>artiste : ${author.pseudo}</p>
-	
+	<li>${author.pseudo}, a.k.a ${author.firstname} ${author.lastname}</li>
 </c:forEach>
+</ul>
+
 
 </body>
 </html>

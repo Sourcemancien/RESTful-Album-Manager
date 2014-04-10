@@ -14,6 +14,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import test.restful.album.library.entity.AuthorList;
 import test.restful.album.library.entity.Person;
 
 
@@ -49,12 +50,12 @@ public class AuthorService {
 	@GET
 	@Path("/all")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Person> getAuthors(){
-		List<Person> list = new ArrayList<Person>();
+	public AuthorList getAuthors(){
+		AuthorList list = new AuthorList();
 		Set<Integer> keyset = authors.keySet();
 		
 		for (Integer key : keyset) {
-			list.add(authors.get(key));
+			list.addAuthor(authors.get(key));
 		}
 		
 		return list;

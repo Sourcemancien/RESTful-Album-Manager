@@ -1,6 +1,5 @@
 package test.restful.album.controller;
 
-import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -9,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
+import test.restful.album.library.entity.AuthorList;
 import test.restful.album.library.entity.Person;
 
 
@@ -34,7 +34,7 @@ public class AuthorController {
 	public String getAuthors(Model model){
 		RestTemplate rest = new RestTemplate();
 		//FIXME desérialisation non fonctionnelle ?
-		List<Person> authors = Arrays.asList(rest.getForObject(restPath + "all", Person[].class));
+		List<Person> authors = rest.getForObject(restPath + "all", AuthorList.class).getAuthors();
 		
 		model.addAttribute("authors", authors);
 		return "authors";
