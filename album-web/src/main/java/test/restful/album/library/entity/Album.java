@@ -22,7 +22,7 @@ public class Album {
 	/*
 	 * ATTRIBUTS
 	 */
-	private static int ID_SEQUENCE = 0;
+//	private static int ID_SEQUENCE = 0;
 	
 	private int id;
 	private String name;
@@ -36,7 +36,7 @@ public class Album {
 	 * CONSTRUCTEUR
 	 */
 	public Album(){
-		this.id = ++Album.ID_SEQUENCE;
+//		this.id = ++Album.ID_SEQUENCE;
 		this.authors = new ArrayList<Person>();
 	}
 

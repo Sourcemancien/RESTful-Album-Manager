@@ -2,6 +2,7 @@ package test.restful.album.controller;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -82,6 +83,7 @@ public class AlbumController {
 		// set object to send
 		Album album = new Album();
 		album.setName(name);
+		album.setReleaseDate(new Date());
 		album.setCdNumber(cdNumber);
 		album.setType(type);
 		// send object throught POST request, and get the returned object

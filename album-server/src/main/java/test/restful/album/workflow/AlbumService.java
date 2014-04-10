@@ -22,11 +22,14 @@ import test.restful.album.library.entity.AlbumType;
 
 @Path("/albums")
 public class AlbumService {
+	
+	private static int ALBUM_SEQUENCE = 0;
 	private static Map<Integer,Album> albums = new HashMap<Integer,Album>();
 	
 	//creation static d'objets initiaux
 	static {
 		Album album1 = new Album();
+		album1.setId(++ALBUM_SEQUENCE);
 		album1.setName("Short single");
 		album1.setReleaseDate(new Date());
 		album1.setType(AlbumType.SINGLE);
@@ -34,6 +37,7 @@ public class AlbumService {
 		albums.put(album1.getId(), album1);
 		
 		Album album2 = new Album();
+		album2.setId(++ALBUM_SEQUENCE);
 		album2.setName("Hotel");
 		album2.setReleaseDate(new Date());
 		album2.setType(AlbumType.ALBUM);
@@ -82,12 +86,13 @@ public class AlbumService {
 	 */
 	@POST
 	@Path("/add")
-	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Album addAlbum(Album newAlbum){ //TODO add an author //TODO exception handling
 		
 		Album album = new Album();
 		
+
+		album.setId(++ALBUM_SEQUENCE);
 		album.setName(newAlbum.getName());
 		album.setReleaseDate(newAlbum.getReleaseDate());
 		album.setCdNumber(newAlbum.getCdNumber());
