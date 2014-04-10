@@ -8,13 +8,13 @@
 </head>
 <body>
 
-La récupération d'auteur s'est à peu près déroulée comme supposé :
+
 
 <p>ref : ${author.id}</p>
 <p>prénom : ${author.firstname}</p>
 <p>nom : ${author.lastname}</p>
 <p>nom d'artiste : ${author.pseudo}</p>
 
-
+<a href="http://localhost:8080/album-web/author/list.html">retour à la liste</a>
 </body>
 </html>

@@ -12,19 +12,19 @@
 </head>
 <body>
 
-La récupération des auteurs s'est à peu près déroulée comme voulu, mais on en sait pas trop, peut être, peut être pas.
-Voici la liste des auteurs connus :
+Liste des auteurs :
 
 
 <ul>
 <c:forEach items="${authors}" var="author">
 	<li>
-		<a href="http://localhost:8080/album-web/author/details?id=${author.id}"> ${author.pseudo}</a>
-		, a.k.a ${author.firstname} ${author.lastname}
+		<a href="http://localhost:8080/album-web/author/details?id=${author.id}"> ${author.pseudo}</a>, a.k.a 
+		<em>${author.firstname} ${author.lastname}</em>
 	</li>
 </c:forEach>
 </ul>
 
-
+<a href="http://localhost:8080/album-web/author/new.html">ajouter un artite</a> | 
+<a href="http://localhost:8080/album-web/album/list.html">voir liste des albums</a>
 </body>
 </html>

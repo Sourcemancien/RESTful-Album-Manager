@@ -8,13 +8,12 @@
 </head>
 <body>
 
-La récupération d'album s'est à peu près déroulée comme supposé :
 
 <p>ref album : ${album.id}</p>
 <p>nom d'album : ${album.name}</p>
 <p>date (de l'instance) : ${album.releaseDate}</p>
 <p>format : ${album.type}</p>
 
-
+<a href="http://localhost:8080/album-web/album/list.html">retour à la liste</a>
 </body>
 </html>

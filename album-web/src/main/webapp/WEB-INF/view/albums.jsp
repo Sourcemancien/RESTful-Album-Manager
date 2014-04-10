@@ -12,8 +12,7 @@
 </head>
 <body>
 
-La récupération des albums s'est à peu près déroulée comme voulu, mais on en sait pas trop, peut être, peut être pas.
-Voici la liste des albums connus :
+Liste des albums :
 
 
 <ul>
@@ -26,6 +25,7 @@ Voici la liste des albums connus :
 </c:forEach>
 </ul>
 
-
+<a href="http://localhost:8080/album-web/album/new.html">ajouter un album</a> | 
+<a href="http://localhost:8080/album-web/author/list.html">voir liste des auteurs</a>
 </body>
 </html>
