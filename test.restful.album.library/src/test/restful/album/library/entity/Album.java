@@ -1,8 +1,6 @@
 package test.restful.album.library.entity;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -21,7 +19,7 @@ public class Album {
 	/*
 	 * ATTRIBUTS
 	 */
-	private static int ID_SEQUENCE = 0;
+//	private static int ID_SEQUENCE = 0;
 	
 	private int id;
 	
@@ -30,14 +28,14 @@ public class Album {
 	private int cdNumber;
 	
 	private AlbumType type;
-	private List<Person> authors;
+	private Person author;
 	
 	/*
 	 * CONSTRUCTEUR
 	 */
 	public Album(){
-		this.id = ++Album.ID_SEQUENCE;
-		this.authors = new ArrayList<Person>();
+//		this.id = ++Album.ID_SEQUENCE;
+//		this.authors = new ArrayList<Person>();
 	}
 
 	
@@ -79,13 +77,13 @@ public class Album {
 
 
 	@XmlElement
-	public List<Person> getAuthors() {
-		return authors;
+	public Person getAuthors() {
+		return author;
 	}
 
 
-	public void setAuthors(List<Person> authors) {
-		this.authors = authors;
+	public void setAuthors(Person author) {
+		this.author = author;
 	}
 
 

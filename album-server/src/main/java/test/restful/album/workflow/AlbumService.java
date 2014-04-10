@@ -1,13 +1,10 @@
 package test.restful.album.workflow;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -23,6 +20,7 @@ import test.restful.album.library.entity.AlbumType;
 @Path("/albums")
 public class AlbumService {
 	
+	//handling sequence here avoid parameter objects incrementing it (like "newAlbum" in addAlbum function)
 	private static int ALBUM_SEQUENCE = 0;
 	private static Map<Integer,Album> albums = new HashMap<Integer,Album>();
 	
@@ -47,9 +45,9 @@ public class AlbumService {
 	
 
 	/**
-	 * Récupérer un album à partir de sa référence
-	 * @param id Référence de l'album
-	 * @return Un album sous forme de conteneur JSON
+	 * Returns the Album instance associated with the id value
+	 * @param id Album key
+	 * @return The album corresponding to the key
 	 */
 	@GET
 	@Path("/{id}")
@@ -70,6 +68,7 @@ public class AlbumService {
 	public AlbumList getAlbums(){
 		AlbumList list = new AlbumList();
 		
+		//filling a list with the content of the global hashmap
 		Set<Integer> keyset = albums.keySet();
 		for (int key : keyset) {
 			list.addAlbum(albums.get(key));

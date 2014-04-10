@@ -33,7 +33,7 @@ public class AuthorController {
 	@RequestMapping("list")
 	public String getAuthors(Model model){
 		RestTemplate rest = new RestTemplate();
-		//FIXME desérialisation non fonctionnelle ?
+		
 		List<Person> authors = rest.getForObject(restPath + "all", AuthorList.class).getAuthors();
 		
 		model.addAttribute("authors", authors);
