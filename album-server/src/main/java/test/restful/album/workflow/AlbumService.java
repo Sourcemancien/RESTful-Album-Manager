@@ -12,9 +12,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import com.sun.jersey.api.client.Client;
-import com.sun.jersey.api.client.config.DefaultClientConfig;
-
 import test.restful.album.library.entity.Album;
 import test.restful.album.library.entity.AlbumList;
 import test.restful.album.library.entity.AlbumType;
