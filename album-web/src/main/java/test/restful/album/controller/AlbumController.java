@@ -50,35 +50,17 @@ public class AlbumController {
 	 * @return
 	 */
 	@RequestMapping("list")
-	public String getAlbums(Model model){ //FIXME don't work, list deserialization problem
-		
-		//TODO consommer RESTful Service JSON /album-server/webresources/albums
-		System.out.println("open template");
+	public String getAlbums(Model model){
+		//consommer RESTful Service JSON /album-server/webresources/albums
 		RestTemplate rest = new RestTemplate();
-		System.out.println("init list");
 		List<Album> albums = new ArrayList<Album>();
 		
 		
-		System.out.println("call api");
-		try{
-			//Arrays.asList((rest.getForObject(restPath + "/albums", Album[].class)))
-			albums = rest.getForObject(restPath + "all", AlbumList.class).getListe();
-			model.addAttribute("albums", albums);
-		}
-		catch (RestClientException e){
-			System.out.println("Catch exception from restTemplate");
-			System.out.println(e.getMessage());
-			e.printStackTrace();
-		}
-		catch (Exception e){
-			System.out.println(e.getMessage());
-			e.printStackTrace();
-		}
-		finally{
-			System.out.println("something went wrong");
-		}
+		//alternative pour liste native ? : Arrays.asList((rest.getForObject(restPath + "/albums", Album[].class)))
+		albums = rest.getForObject(restPath + "all", AlbumList.class).getListe();
+		model.addAttribute("albums", albums);
+	
 		
-		System.out.println("API call passed");
 		return "albums";
 	}
 	
@@ -97,7 +79,7 @@ public class AlbumController {
 			@RequestParam("type") AlbumType type){
 		// init rest
 		RestTemplate rest = new RestTemplate();
-		// set objet to send
+		// set object to send
 		Album album = new Album();
 		album.setName(name);
 		album.setCdNumber(cdNumber);

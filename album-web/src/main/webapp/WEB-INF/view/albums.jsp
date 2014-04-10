@@ -18,7 +18,11 @@ Voici la liste des albums connus :
 
 <ul>
 <c:forEach items="${albums}" var="album">
-	<li> ${album.name} </li>
+	<li> 
+		<a href="http://localhost:8080/album-web/album/details?id=${album.id}">
+			${album.name}
+		</a> 
+	</li>
 </c:forEach>
 </ul>
 

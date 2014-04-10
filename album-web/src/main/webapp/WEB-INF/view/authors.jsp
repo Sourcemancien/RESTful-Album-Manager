@@ -18,7 +18,10 @@ Voici la liste des auteurs connus :
 
 <ul>
 <c:forEach items="${authors}" var="author">
-	<li>${author.pseudo}, a.k.a ${author.firstname} ${author.lastname}</li>
+	<li>
+		<a href="http://localhost:8080/album-web/author/details?id=${author.id}"> ${author.pseudo}</a>
+		, a.k.a ${author.firstname} ${author.lastname}
+	</li>
 </c:forEach>
 </ul>
 

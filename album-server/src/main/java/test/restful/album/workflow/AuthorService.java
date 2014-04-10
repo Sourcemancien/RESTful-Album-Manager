@@ -68,12 +68,11 @@ public class AuthorService {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Person addAuthor(Person newAuthor){
-		Person author;
+		Person author = new Person();
 		
-		author = new Person();
 		author.setFirstname(newAuthor.getFirstname());
 		author.setLastname(newAuthor.getLastname());
-		author.setPseudo(newAuthor.getPseudo());;
+		author.setPseudo(newAuthor.getPseudo());
 		
 		authors.put(author.getId(), author);
 		
