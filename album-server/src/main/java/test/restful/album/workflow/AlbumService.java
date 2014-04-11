@@ -28,7 +28,7 @@ public class AlbumService {
 	
 	
 	
-	//creation static d'objets initiaux
+	//a way to have initial objects
 	static {
 		Album album1 = new Album();
 		album1.setId(++ALBUM_SEQUENCE);
@@ -37,7 +37,6 @@ public class AlbumService {
 		album1.setType(AlbumType.SINGLE);
 		album1.setCdNumber(1);
 		albums.put(album1.getId(), album1);
-		
 		
 		Album album2 = new Album();
 		album2.setId(++ALBUM_SEQUENCE);
@@ -92,23 +91,16 @@ public class AlbumService {
 	@Path("/add/{author_id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public static Album addAlbum(Album newAlbum, @PathParam("author_id") int author_id){ 
-		//TODO add an author //TODO exception handling
-		
-		Album album = new Album();
-
-		album.setId(++ALBUM_SEQUENCE);
-		album.setName(newAlbum.getName());
-		album.setReleaseDate(newAlbum.getReleaseDate());
-		album.setCdNumber(newAlbum.getCdNumber());
-		album.setType(newAlbum.getType());
+		//TODO exception handling
+		newAlbum.setId(++ALBUM_SEQUENCE);
 
 		// handle authors
 		Person author = AuthorService.getAuthor(author_id); //TODO get from service author
-		album.setAuthor(author);
+		newAlbum.setAuthor(author);
 		//TODO add album to Author (beware json construction loop ?)
 		
-		albums.put(album.getId(), album);
-		return album;
+		albums.put(newAlbum.getId(), newAlbum);
+		return newAlbum;
 	}
 	
 	
