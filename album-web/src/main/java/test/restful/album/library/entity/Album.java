@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.eclipse.persistence.oxm.annotations.XmlInverseReference;
+
 
 /**
  * Modèle d'un album
@@ -28,7 +30,7 @@ public class Album {
 	private int cdNumber;
 	private AlbumType type;
 	
-	private Person author;
+	private int authorId;
 	
 	/*
 	 * CONSTRUCTEUR
@@ -43,7 +45,6 @@ public class Album {
 	 * GETTEURS & SETTEURS
 	 */
 	
-	@XmlElement
 	public String getName() {
 		return name;
 	}
@@ -54,7 +55,6 @@ public class Album {
 	}
 
 
-	@XmlElement
 	public Date getReleaseDate() {
 		return releaseDate;
 	}
@@ -65,7 +65,6 @@ public class Album {
 	}
 
 	
-	@XmlElement
 	public int getCdNumber() {
 		return cdNumber;
 	}
@@ -76,18 +75,7 @@ public class Album {
 	}
 
 
-	@XmlElement
-	public Person getAuthor() {
-		return author;
-	}
 
-
-	public void setAuthor(Person author) {
-		this.author = author;
-	}
-
-
-	@XmlElement
 	public int getId() {
 		return id;
 	}
@@ -99,7 +87,6 @@ public class Album {
 	}
 
 
-	@XmlElement
 	public AlbumType getType() {
 		return type;
 	}
@@ -108,6 +95,16 @@ public class Album {
 
 	public void setType(AlbumType type) {
 		this.type = type;
+	}
+
+
+	public int getAuthorId() {
+		return authorId;
+	}
+
+
+	public void setAuthorId(int authorId) {
+		this.authorId = authorId;
 	}
 
 	

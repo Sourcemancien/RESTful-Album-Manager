@@ -13,6 +13,7 @@ public class Person {
 	
 	private int id;
 	private String firstname, lastname, pseudo;
+	
 	private List<Album> albums;
 	
 	
@@ -63,8 +64,8 @@ public class Person {
 		this.pseudo = pseudo;
 	}
 	
-
-	@XmlElement
+	
+	@XmlElement(name="albums")
 	public List<Album> getAlbums() {
 		return albums;
 	}

@@ -97,7 +97,8 @@ public class AlbumService {
 		// handle authors
 		Person author = AuthorService.getAuthor(author_id); //TODO get from service author
 		newAlbum.setAuthor(author);
-		//TODO add album to Author (beware json construction loop ?)
+		author.getAlbums().add(newAlbum); //TODO add album to Author (beware json construction loop ?)
+		
 		
 		albums.put(newAlbum.getId(), newAlbum);
 		return newAlbum;

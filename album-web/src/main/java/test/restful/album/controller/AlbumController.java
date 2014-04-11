@@ -36,10 +36,10 @@ public class AlbumController {
 		// consommer RESTful Service JSON /album-server/webresources/albums/{id}
 		RestTemplate rest = new RestTemplate();
 		Album album = rest.getForObject(albumPath + "{id}", Album.class, id);
-		
+		Person author = rest.getForObject(authorPath + "{id}", Person.class, album.getAuthorId());
 		
 		model.addAttribute("album", album);
-		
+		model.addAttribute("author", author);
 		//TODO cas d'erreur : rediriger vers les albums (MappingException ?)
 		
 		return "album";

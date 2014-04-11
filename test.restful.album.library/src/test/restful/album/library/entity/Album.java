@@ -2,8 +2,11 @@ package test.restful.album.library.entity;
 
 import java.util.Date;
 
-import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+
 
 /**
  * Modèle d'un album
@@ -14,6 +17,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * - authors
  */
 @XmlRootElement(name="album")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Album {
 	
 	/*
@@ -28,7 +32,11 @@ public class Album {
 	private int cdNumber;
 	
 	private AlbumType type;
+	
+	@XmlTransient
 	private Person author;
+	
+	private int authorId;
 	
 	/*
 	 * CONSTRUCTEUR
@@ -43,7 +51,6 @@ public class Album {
 	 * GETTEURS & SETTEURS
 	 */
 	
-	@XmlElement
 	public String getName() {
 		return name;
 	}
@@ -54,7 +61,6 @@ public class Album {
 	}
 
 
-	@XmlElement
 	public Date getReleaseDate() {
 		return releaseDate;
 	}
@@ -65,7 +71,6 @@ public class Album {
 	}
 
 	
-	@XmlElement
 	public int getCdNumber() {
 		return cdNumber;
 	}
@@ -76,7 +81,6 @@ public class Album {
 	}
 
 
-	@XmlElement
 	public Person getAuthor() {
 		return author;
 	}
@@ -84,10 +88,10 @@ public class Album {
 
 	public void setAuthor(Person author) {
 		this.author = author;
+		this.authorId = author.getId();
 	}
 
 
-	@XmlElement
 	public int getId() {
 		return id;
 	}
@@ -99,7 +103,6 @@ public class Album {
 	}
 
 
-	@XmlElement
 	public AlbumType getType() {
 		return type;
 	}
@@ -108,6 +111,16 @@ public class Album {
 
 	public void setType(AlbumType type) {
 		this.type = type;
+	}
+
+
+	public int getAuthorId() {
+		return this.authorId;
+	}
+
+
+	public void setAuthorId(int authorId) {
+		this.authorId = authorId;
 	}
 
 	

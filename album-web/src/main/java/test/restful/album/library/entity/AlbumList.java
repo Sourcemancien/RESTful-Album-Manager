@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * Objet conteneur pour la sérialisation et la désérialisation JSON
  *
  */
-@XmlRootElement(name="album_list")
+@XmlRootElement(name="albums")
 public class AlbumList {
 	
 	private List<Album> liste;

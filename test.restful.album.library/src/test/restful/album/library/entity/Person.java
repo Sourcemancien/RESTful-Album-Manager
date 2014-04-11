@@ -3,15 +3,18 @@ package test.restful.album.library.entity;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 
 @XmlRootElement(name="person")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Person {
 	
 	private int id;
 	private String firstname, lastname, pseudo;
+	
 	private List<Album> albums;
 	
 	
@@ -20,7 +23,6 @@ public class Person {
 	}
 
 	
-	@XmlElement
 	public int getId(){
 		return this.id;
 	}
@@ -31,7 +33,6 @@ public class Person {
 	}
 	
 	
-	@XmlElement
 	public String getFirstname() {
 		return firstname;
 	}
@@ -41,7 +42,6 @@ public class Person {
 		this.firstname = firstname;
 	}
 
-	@XmlElement
 	public String getLastname() {
 		return lastname;
 	}
@@ -52,7 +52,6 @@ public class Person {
 	}
 	
 	
-	@XmlElement
 	public String getPseudo(){
 		return this.pseudo;
 	}
@@ -63,7 +62,6 @@ public class Person {
 	}
 	
 
-	@XmlElement
 	public List<Album> getAlbums() {
 		return albums;
 	}
