@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -19,18 +18,21 @@ import test.restful.album.library.entity.Person;
 @Path("/authors")
 public class AuthorService {
 	
+	private static int ID_SEQUENCE = 0;
 	private static Map<Integer, Person> authors = new HashMap<Integer,Person>();
 	
 	
 	//creation statique d'objet initiaux (provisoire)
 	static {
 		Person person1 = new Person();
+		person1.setId(++ID_SEQUENCE);
 		person1.setFirstname("Richard Melville");
 		person1.setLastname("Hall");
 		person1.setPseudo("Moby");
 		authors.put(person1.getId(), person1);
 		
 		Person person2 = new Person();
+		person2.setId(++ID_SEQUENCE);
 		person2.setFirstname("Alecia");
 		person2.setLastname("Beth Moore");
 		person2.setPseudo("P!nk");
@@ -65,16 +67,10 @@ public class AuthorService {
 	@POST
 	@Path("/add")
 	@Produces(MediaType.APPLICATION_JSON)
-	@Consumes(MediaType.APPLICATION_JSON)
 	public static Person addAuthor(Person newAuthor){
-		Person author = new Person();
+		newAuthor.setId(++ID_SEQUENCE);
+		authors.put(newAuthor.getId(), newAuthor);
 		
-		author.setFirstname(newAuthor.getFirstname());
-		author.setLastname(newAuthor.getLastname());
-		author.setPseudo(newAuthor.getPseudo());
-		
-		authors.put(author.getId(), author);
-		
-		return author;
+		return newAuthor;
 	}
 }

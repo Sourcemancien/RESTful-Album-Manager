@@ -10,15 +10,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name="person")
 public class Person {
 	
-	private static int ID_SEQUENCE = 0;
-	
 	private int id;
 	private String firstname, lastname, pseudo;
 	private List<Album> albums;
 	
 	
 	public Person(){
-		this.id = ++Person.ID_SEQUENCE;
 		this.albums = new ArrayList<Album>();
 	}
 

@@ -82,8 +82,8 @@ public class AlbumController {
 	}
 	
 	
-	@RequestMapping("insert")
-	public String insert(Model model,
+	@RequestMapping(value = "insert", method = RequestMethod.POST)
+	public String insertAlbum(Model model,
 			@RequestParam("name") String name, @RequestParam("cdNumber") int cdNumber,
 			@RequestParam("type") AlbumType type, @RequestParam("author_id") int author_id ) {
 		

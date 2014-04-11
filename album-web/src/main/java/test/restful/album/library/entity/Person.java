@@ -8,10 +8,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 
 
-@XmlRootElement(name="author")
+@XmlRootElement(name="person")
 public class Person {
-	
-	private static int ID_SEQUENCE = 0;
 	
 	private int id;
 	private String firstname, lastname, pseudo;
@@ -19,7 +17,6 @@ public class Person {
 	
 	
 	public Person(){
-		this.id = ++Person.ID_SEQUENCE;
 		this.albums = new ArrayList<Album>();
 	}
 

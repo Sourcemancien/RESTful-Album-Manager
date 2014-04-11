@@ -8,12 +8,17 @@
 </head>
 <body>
 
-La récupération d'auteur s'est à peu près déroulée comme supposé :
+<form method="POST" action="http://localhost:8080/album-web/author/insert.html">
 
-<p>ref : ${author.id}</p>
-<p>prénom : ${author.firstname}</p>
-<p>nom : ${author.lastname}</p>
-<p>nom d'artiste : ${author.pseudo}</p>
+	Nom de scène : <input type="text" name="pseudo"/>
+	
+	Prénom : <input type="text" name="firstname"/>
+	Nom : <input type="text" name="lastname"/>
+	
+	
+	<input type="submit" value="enregistrer"/>
+
+</form>
 
 
 </body>
