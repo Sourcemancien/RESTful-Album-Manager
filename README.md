@@ -12,4 +12,4 @@ But the purpose is to have two physically separated applications, then the Sprin
 
 
 There is a third java project providing a common library of POJO/Java Bean which define the JSON structure.
-In this sample, the library is only used by the Jersey application while the web client use its own Java Bean, just because we can... 
+In this sample, the library is only used by the Jersey application while the web client use its own Java Bean, just because we can... because using json allow us to have different models as long as they respect (a part of) the JSON scheme.
